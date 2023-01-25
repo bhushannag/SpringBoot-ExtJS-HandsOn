@@ -36,7 +36,8 @@ public class UserController {
 	}
 	
 	@GetMapping("/login")
-	public ResponseEntity<UserRegistrationResponseDto> userLogin(UserLoginRequestDto userLoginRequestDto){
+	public ResponseEntity<?> userLogin(UserLoginRequestDto userLoginRequestDto){
+		return new ResponseEntity<>(userService.login(userLoginRequestDto) , HttpStatus.OK);
 	}
 
 }
